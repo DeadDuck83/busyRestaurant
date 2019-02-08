@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wait List</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Icon set Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+
+            <h1 class="display-4">
+                <i class="fal fa-clipboard-list-check"></i> Fill out the form</h1>
+
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="/reserve" role="button">Reserve a table</a>
+            <a class="btn btn-primary btn-lg" href="/tables" role="button">See the tables</a>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-6">
+                <form id="reserve">
+                    <div class="form-group">
+                        <label for="resName">Reservation Name:</label>
+                        <input name="name" class="form-control" id="resName" aria-describedby="nameHelp" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="resPhone">Phone Number:</label>
+                        <input name="phone" class="form-control" id="resPhone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="resEmail">Email:</label>
+                        <input name="email" class="form-control" id="resEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="resID">Unique ID:</label>
+                        <input name="uniqueID" class="form-control" id="resID" placeholder="ID">
+                    </div>
+                    <a type="submit" class="btn btn-primary submit">Submit</a>
+                </form>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        $('.submit').on("click", function (e) {
+            e.preventDefault();
+            // get all the inputs into an array.
+            var $inputs = $('#reserve :input');
+            console.log("clicked");
+            // not sure if you wanted this, but I thought I'd add it.
+            // get an associative array of just the values.
+            var values = {};
+            console.log($inputs);
+
+            $inputs.each(function () {
+                Array.from(values[this.name] = $(this).val().trim());
+            });
+            console.log(values);
+
+            // Performing our AJAX GET request
+            $.post("/api/reservations", values)
+                // After the data comes back from the API
+                .then(function (response) {
+                    // Storing an array of results in the results variable  
+                });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

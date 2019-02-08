@@ -1,0 +1,23 @@
+{
+  "name": "busy_restaurant",
+  "version": "1.0.0",
+  "description": "Super Busy Restaurant",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeadDuck83/busyRestaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeadDuck83/busyRestaurant/issues"
+  },
+  "homepage": "https://github.com/DeadDuck83/busyRestaurant#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
